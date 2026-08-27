@@ -1,4 +1,4 @@
-# Prism-1
+# Measuring Intra-Physician Prescribing Variability to Target Continuing Medical Education: A Comparative Study of Five Patient-Matching Methods
 
 Pipeline for analysing intra-physician prescription variability on synthetic cohorts, using several comparison methods (GLMM + matching).
 
@@ -27,7 +27,7 @@ The application entry point is `main.py`. The analytical core lives in `src/pris
 └── pyproject.toml              # Poetry dependencies and project metadata
 ```
 
-Run outputs (`exp/`) and local extracts (`data/`) are not versioned.
+Run outputs (`exp/`) are not versioned.
 
 ## Requirements
 
@@ -110,8 +110,6 @@ The contribution process is described in `CONTRIBUTING.md`. Install local hooks 
 
 The default config (`configs/article_stats.yaml`) generates a **synthetic SCORE2 cohort**. No warehouse access is required. Never commit patient extracts or `.env` files.
 
-**Git history:** private clones may still contain clinical data in old commits. Do not push the existing history to a public remote. Create a fresh repository (orphan branch) from the cleaned working tree, then run a secret scan. See `SECURITY.md`.
-
 ## License
 
 This project is distributed under the MIT License. See `LICENSE`.
@@ -119,3 +117,9 @@ This project is distributed under the MIT License. See `LICENSE`.
 ## Contact
 
 Questions and contributions go through GitHub issues and pull requests. The code of conduct is in `CODE_OF_CONDUCT.md`. Report vulnerabilities as described in `SECURITY.md`.
+
+Or, you can directly contact :
+
+- BENANI D. Alaedine
+- alaedine.benani@aphp.fr
+- (+33) 6 74 38 12 39
