@@ -1,6 +1,10 @@
 # Measuring Intra-Physician Prescribing Variability to Target Continuing Medical Education: A Comparative Study of Five Patient-Matching Methods
 
-Pipeline for analysing intra-physician prescription variability on synthetic cohorts, using several comparison methods (GLMM + matching).
+Authored by : Dr Alaedine Benani, Dr Sylvain Bodard, Pr Emmanuel Messas, Pr Xavier Tannier
+
+Submitted to EFMI STC 2026.
+
+`A Pipeline for analysing intra-physician prescription variability on synthetic cohorts, using several comparison methods (GLMM + matching).`
 
 ## Overview
 
