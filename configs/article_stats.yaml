@@ -1,0 +1,109 @@
+# -----------------------------------------------------------------------------
+# Prism pipeline configuration (synthetic SCORE2 experiment)
+# -----------------------------------------------------------------------------
+
+project:
+  name: "prism"
+  random_state: 42
+  ask_user_for_experiment_name: false
+  default_experiment_name: "synthetic-score2"
+
+paths:
+  experiments_root: "exp"
+  experiments_date_format: "%y_%m_%d"
+  scratch_dirname_prefix: "exp"
+  dataset_csv: "dataset_zero_heter.csv"
+
+logging:
+  level: "info"
+  app_name: "main"
+
+dataset:
+  generation_strategy: "score2_five_groups_heter_patients"
+  score2_five_groups:
+    n_patients: 20000
+    n_physicians: 20
+    random_state_offset: 100
+  multi_rule_experiments:
+    enabled: false
+    n_passes: 2
+  save_raw_csv: false
+
+analysis:
+  enabled: true
+  outcome_col: "recommendation"
+  physician_col: "professional_id"
+  min_patients_per_physician: 10
+  rf_n_estimators: 300
+  fixed_effects: "auto"
+  auto_max_missing: 0.20
+
+  questionnaire:
+    enabled: false
+    column_prefix: "qa__"
+    min_response_rate: 0.20
+  imputation:
+    enabled: true
+    method: "mice"
+    max_iter: 10
+    n_nearest_features: 20
+
+  outlier_detection:
+    enabled: true
+    auto_repair: false
+    threshold: 3.5
+    min_unique_values: 3
+    columns: auto
+    hard_bounds:
+      score_score2: { max: 20 }
+
+  feature_selection:
+    enabled: false
+    method: "variance"
+    top_k: 25
+    standardize: true
+    columns: []
+
+  dataset_targets:
+    score2_five_groups_heter_patients:
+      expected_summary: "SCORE2-style: 20 physicians. Group 1: 100% if moderate+ else 0%; group 2: 90% if moderate+ and 5% otherwise; group 3: 80% if moderate+ and 10% otherwise; group 4: 70% if moderate+ and 20% otherwise; group 5: 50% regardless of SCORE2 class."
+
+  gray_zone_bounds: [0.3, 0.7]
+
+  glmm:
+    enabled: true
+    fixed_effects: matching
+
+  matching:
+    caliper_enabled: false
+    caliper_sd: 0.5
+    caliper_rf: 0.7
+    caliper_mahalanobis: 2
+    min_coverage_warn: 0.5
+
+  methods:
+    euclidean: true
+    mahalanobis: true
+    rf_matching: true
+    learning: true
+    mutual_info: true
+    ensemble: true
+    manual_pairing: true
+
+  bernoulli_residual:
+    methods: all
+
+  strobe_diagram:
+    enabled: true
+
+  validation:
+    enabled: true
+    announce_console: true
+    fail_on_critical: false
+    export_balance_heatmap: true
+    calibration_profile: auto
+    clinical_review_primary_method: euclidean
+
+snapshots:
+  enabled: true
+  max_rows: 3
