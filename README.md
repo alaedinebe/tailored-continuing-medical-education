@@ -122,7 +122,7 @@ This project is distributed under the MIT License. See `LICENSE`.
 
 Questions and contributions go through GitHub issues and pull requests. The code of conduct is in `CODE_OF_CONDUCT.md`. Report vulnerabilities as described in `SECURITY.md`.
 
-Or, you can directly contact :
+You can also contact:
 
 - BENANI D. Alaedine
 - alaedine.benani@aphp.fr

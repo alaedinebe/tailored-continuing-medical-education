@@ -1,31 +1,31 @@
-# Guide de contribution
+# Contributing guide
 
-Ce document décrit les bonnes pratiques pour contribuer à `prism-1` de manière fiable et reproductible.
+This document describes how to contribute to `prism-1` in a reliable and reproducible way.
 
-## 1) Avant de commencer
+## 1) Before you start
 
-- Utiliser Python `>=3.12,<3.13`.
-- Installer les dépendances avec `poetry install`.
-- Créer une branche dédiée par sujet (ex: `feat/xxx`, `fix/yyy`, `docs/zzz`).
-- Vérifier que les secrets ne sont jamais versionnés (`.env`, clés AWS, tokens).
-- Ne pas versionner d'extraits patients, de listes d'identifiants réels, ni de notebooks de labo internes.
-- Lire `CODE_OF_CONDUCT.md` et `SECURITY.md`.
+- Use Python `>=3.12,<3.13`.
+- Install dependencies with `poetry install`.
+- Create a dedicated branch per topic (e.g. `feat/xxx`, `fix/yyy`, `docs/zzz`).
+- Never version secrets (`.env`, AWS keys, tokens).
+- Do not version patient extracts, real identifier lists, or internal lab notebooks.
+- Read `CODE_OF_CONDUCT.md` and `SECURITY.md`.
 
-## 2) Convention de travail
+## 2) Working conventions
 
-- Faire des commits petits, cohérents et descriptifs.
-- Préférer une modification atomique par commit (code + documentation associée).
-- Garder la configuration de référence dans `configs/article_stats.yaml` et documenter tout nouveau paramètre.
+- Keep commits small, coherent, and descriptive.
+- Prefer one atomic change per commit (code plus related documentation).
+- Keep the reference configuration in `configs/article_stats.yaml` and document every new parameter.
 
-## 3) Qualité de code
+## 3) Code quality
 
-Installer les hooks (une fois) :
+Install hooks (once):
 
 ```bash
 poetry run pre-commit install
 ```
 
-Avant de pousser:
+Before pushing:
 
 ```bash
 poetry run pre-commit run --all-files
@@ -33,33 +33,33 @@ poetry run pre-commit run --all-files
 
 ## 4) Issues
 
-Pour ouvrir une issue utile:
+To open a useful issue:
 
-- décrire le comportement observé et le comportement attendu;
-- préciser le contexte (fichier de config, mode single/batch, version Python);
-- joindre les traces utiles (erreur, extrait de log, artefacts produits).
+- describe the observed behaviour and the expected behaviour;
+- include context (config file, single/batch mode, Python version);
+- attach useful traces (error, log excerpt, produced artefacts).
 
-## 5) Pull Requests
+## 5) Pull requests
 
-Chaque Pull Request doit contenir:
+Each pull request should include:
 
-- un objectif clair (pourquoi le changement est nécessaire);
-- la liste des fichiers impactés;
-- un plan de vérification exécuté localement;
-- les impacts potentiels sur les résultats analytiques.
+- a clear goal (why the change is needed);
+- the list of impacted files;
+- a verification plan that was run locally;
+- potential impacts on analytical results.
 
-Checklist recommandée:
+Recommended checklist:
 
-- [ ] code lisible et documenté (docstrings si API/fonctions exposées)
-- [ ] documentation mise à jour (`README.md`, config)
-- [ ] absence de secrets et de fichiers volumineux non nécessaires
+- [ ] code is readable and documented (docstrings for exposed APIs/functions)
+- [ ] documentation is updated (`README.md`, config)
+- [ ] no secrets and no unnecessary large files
 
 ## 6) Documentation
 
-Toute évolution sur:
+Any change to:
 
-- la structure du pipeline,
-- les méthodes de matching,
-- les formats de sortie,
+- the pipeline structure,
+- matching methods,
+- output formats,
 
-doit être répercutée dans `README.md` et `configs/article_stats.yaml`.
+must be reflected in `README.md` and `configs/article_stats.yaml`.
